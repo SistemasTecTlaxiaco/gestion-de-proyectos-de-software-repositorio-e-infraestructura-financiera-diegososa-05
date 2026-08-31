@@ -389,3 +389,85 @@ Por lo tanto, el backlog del proyecto puede organizarse de manera que cada fase 
 https://communityfund.stellar.org/awards
 
 **Fecha de consulta:** 31 de agosto de 2026.
+---
+
+# 3. Drips Protocol
+
+## 3.1 ¿Qué es Drips?
+
+**Drips** es un protocolo que permite distribuir fondos de manera continua mediante tecnología blockchain.
+
+Su funcionamiento está relacionado principalmente con Ethereum y redes compatibles con EVM.
+
+Una de sus características principales es el uso de **streams**, mediante los cuales los fondos pueden distribuirse progresivamente hacia uno o varios receptores.
+
+---
+
+## 3.2 ¿Qué es el streaming de fondos?
+
+El streaming de fondos consiste en distribuir una cantidad de recursos de manera continua durante un periodo determinado.
+
+A diferencia de una transferencia tradicional, en la que una cantidad se envía de una sola vez, un stream utiliza una tasa de distribución.
+
+Por ejemplo, conceptualmente se puede establecer una cantidad que se distribuye progresivamente a un receptor con una determinada tasa por segundo.
+
+El protocolo registra esta información mediante contratos inteligentes y permite que los receptores recopilen posteriormente los fondos que les corresponden.
+
+---
+
+## 3.3 ¿Qué se necesita para recibir fondos?
+
+Para recibir fondos mediante Drips es necesario contar con una cuenta o dirección compatible con las redes soportadas por el protocolo.
+
+El receptor puede acumular fondos de acuerdo con los streams configurados.
+
+Posteriormente, los fondos disponibles pueden ser recopilados mediante las operaciones correspondientes del protocolo.
+
+Estas operaciones se realizan mediante tecnología blockchain y pueden implicar costos de gas.
+
+---
+
+## 3.4 Límites y consideraciones
+
+El uso de Drips implica considerar diferentes aspectos técnicos:
+
+- El protocolo utiliza redes compatibles con EVM.
+- Las operaciones se realizan mediante contratos inteligentes.
+- Los streams utilizan una tasa de distribución.
+- Los fondos se acumulan para los receptores.
+- Los receptores deben recopilar los fondos disponibles.
+- Las operaciones pueden generar costos de gas.
+- Existen límites relacionados con la cantidad de receptores y la configuración de los streams.
+
+La documentación técnica de Drips indica que una configuración de streams puede manejar hasta **100 receptores**.
+
+Por lo tanto, antes de utilizar este mecanismo es necesario analizar los costos, las redes disponibles y la configuración requerida.
+
+---
+
+## 3.5 Relación con nuestro proyecto
+
+Drips puede considerarse como una alternativa tecnológica para distribuir recursos de manera continua.
+
+Sin embargo, su utilización dependería de las características y necesidades específicas de nuestro proyecto.
+
+Además, es importante distinguir ambas tecnologías:
+
+- El **Stellar Community Fund** corresponde a un mecanismo de financiamiento del ecosistema Stellar.
+- **Drips** corresponde a un protocolo de distribución continua de fondos basado principalmente en Ethereum y redes EVM.
+
+Por lo tanto, Drips no debe considerarse como un componente propio del Stellar Community Fund.
+
+---
+
+## 3.6 Fuente técnica
+
+**Documentación oficial de Drips:**
+
+https://docs.drips.network/
+
+**Documentación técnica:**
+
+https://docs.drips.network/the-protocol/advanced/drips-inner-workings/
+
+**Fecha de consulta:** 31 de agosto de 2026.
