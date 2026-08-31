@@ -313,3 +313,79 @@ La documentación relacionada con la actividad se organiza de la siguiente maner
 │   └── BACKLOG.md
 │
 └── demás archivos del proyecto
+---
+
+# 2. Stellar Community Fund (SCF)
+
+## 2.1 ¿Qué es el Stellar Community Fund?
+
+El **Stellar Community Fund (SCF)** es un programa del ecosistema Stellar que proporciona financiamiento a proyectos que desarrollan soluciones utilizando la red Stellar.
+
+El programa busca apoyar diferentes tipos de proyectos y propuestas que puedan aportar valor al ecosistema.
+
+Para esta práctica se toma como referencia principalmente el **Build Award**, debido a que contempla el desarrollo de proyectos mediante diferentes etapas.
+
+---
+
+## 2.2 Requisitos y criterios de evaluación
+
+De acuerdo con la información oficial del Stellar Community Fund, los proyectos deben presentar una propuesta que permita evaluar diferentes aspectos del proyecto.
+
+Entre los principales criterios se encuentran:
+
+- **Product Market Fit:** relación entre el producto y las necesidades de los usuarios.
+- **Submission Quality:** calidad y claridad de la propuesta presentada.
+- **Use of Stellar:** utilización de la tecnología y herramientas del ecosistema Stellar.
+- **Integration Plan:** planificación de la integración con Stellar.
+- **Ready to Build:** grado de preparación del equipo para comenzar o continuar el desarrollo.
+- **Budget & Tranches:** presupuesto y distribución del financiamiento mediante diferentes tramos.
+
+Estos criterios permiten determinar si un proyecto presenta una propuesta viable y si existe una justificación adecuada para proporcionar financiamiento.
+
+---
+
+## 2.3 Tramos del financiamiento
+
+El Build Award del Stellar Community Fund organiza el desarrollo mediante diferentes etapas o tramos.
+
+La estructura publicada actualmente contempla:
+
+| Tramo | Etapa | Propósito |
+|---|---|---|
+| Tranche #1 | MVP | Desarrollo del producto mínimo viable |
+| Tranche #2 | Testnet | Pruebas y validación técnica |
+| Tranche #3 | Mainnet | Implementación en la red principal |
+
+Esta estructura permite relacionar el financiamiento con resultados concretos del desarrollo.
+
+Es importante aclarar que esta estructura se utiliza en este documento como referencia para organizar nuestro proyecto. **El equipo no cuenta actualmente con un financiamiento aprobado por el Stellar Community Fund.**
+
+---
+
+## 2.4 Relación con nuestro proyecto
+
+Los requisitos del SCF permiten identificar varios aspectos que nuestro proyecto debe considerar antes de realizar una posible postulación.
+
+Entre ellos se encuentran:
+
+1. Definir claramente el problema que se pretende solucionar.
+2. Identificar a los usuarios objetivo.
+3. Contar con un producto o prototipo funcional.
+4. Demostrar el avance del proyecto.
+5. Justificar el uso de Stellar.
+6. Definir un plan de integración.
+7. Elaborar un presupuesto.
+8. Organizar el desarrollo mediante fases.
+9. Establecer resultados verificables para cada etapa.
+
+Por lo tanto, el backlog del proyecto puede organizarse de manera que cada fase produzca resultados que posteriormente puedan ser utilizados como evidencia de avance.
+
+---
+
+## 2.5 Fuente oficial y fecha de consulta
+
+**Fuente oficial:** Stellar Community Fund – Build Awards
+
+https://communityfund.stellar.org/awards
+
+**Fecha de consulta:** 31 de agosto de 2026.
