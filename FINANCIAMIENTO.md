@@ -1,473 +1,94 @@
-# Financiamiento del Proyecto
+# Investigación de Infraestructura Financiera y Estrategia de Financiamiento
 
-## Gestión de Proyectos de Software
-
-**Materia:** Gestión de Proyectos de Software (SCG-1009)  
-**Institución:** TECNM Campus Tlaxiaco  
-**Periodo:** Agosto – Diciembre 2026  
-
----
-
-## 1. Introducción
-
-El financiamiento es un elemento importante dentro de la gestión de proyectos de software, debido a que permite planificar los recursos necesarios para realizar actividades de desarrollo, pruebas, infraestructura, seguridad, integración y puesta en producción.
-
-En este documento se investigan dos elementos relacionados con la infraestructura financiera de proyectos tecnológicos: el **Stellar Community Fund (SCF)** y el **protocolo Drips**.
-
-El Stellar Community Fund es un programa de financiamiento del ecosistema Stellar que busca apoyar proyectos que desarrollan soluciones utilizando la tecnología de Stellar y Soroban.
-
-Por otra parte, Drips es un protocolo orientado a la distribución continua de fondos mediante tecnología blockchain, principalmente dentro del ecosistema Ethereum y redes compatibles con EVM.
-
-El propósito de esta investigación no es realizar transacciones reales ni desplegar fondos on-chain. La finalidad es conocer los requisitos reales de estos mecanismos, analizar sus características y relacionarlos con el backlog del proyecto organizado por fases.
+**Proyecto:** Sistema para el Control y Comercialización de la Producción de Miel  
+**Organización:** Unión de Productores de Miel de San Juan Ñumí, Oaxaca  
+**Materia:** Gestión de Proyectos de Software  
+**Fecha de consulta de fuentes:** 31 de agosto de 2026  
 
 ---
 
-# 2. Stellar Community Fund (SCF)
+## 1. Requisitos de Stellar Community Fund (SCF)
 
-## 2.1 ¿Qué es el Stellar Community Fund?
+El **Stellar Community Fund (SCF)** es un programa de subvenciones de la *Stellar Development Foundation (SDF)* diseñado para respaldar a desarrolladores y empresas que construyen aplicaciones y herramientas sobre la red de bloques Stellar.
 
-El **Stellar Community Fund (SCF)** es un programa del ecosistema Stellar que proporciona financiamiento a proyectos que desarrollan soluciones utilizando la red Stellar.
+### 1.1 Requisitos Vigentes de Postulación (Build Award)
+De acuerdo con la documentación oficial del SCF Handbook, para postular una iniciativa en la modalidad *Build Award*, los proyectos deben cumplir con las siguientes condiciones:
+1. **Alineación Técnica:** La propuesta debe integrar la red Stellar o contratos inteligentes Soroban como componente central del sistema (p. ej., gestión de pagos, tokenización de activos o registro de trazabilidad).
+2. **Prueba de Ajuste Producto-Mercado (Product-Market Fit):** Demostrar tracción real de usuarios o una necesidad de mercado claramente validada por un equipo con experiencia en el dominio del problema.
+3. **Estructura Técnica Detallada:** Presentar una arquitectura de sistema completa, plan de trabajo sin ambigüedades y una justificación clara de costos basada exclusivamente en desarrollo técnico.
+4. **Esquema de Tranches (3 Entregables):** La solicitud presupuestal debe dividirse en tres etapas obligatorias:
+   * **Tranche 1 (MVP):** Desarrollo de la primera versión funcional.
+   * **Tranche 2 (Testnet):** Pruebas en red de prueba, incluyendo un **Modelo de Amenazas (Threat Model)** y un **Plan de Monitoreo On-Chain**.
+   * **Tranche 3 (Mainnet Launch):** Despliegue en red principal con compromiso de métricas medibles de uso (volumen de transacciones, cuentas activas o valor registrado).
+5. **Cumplimiento Legal y KYC:** Superar la verificación de identidad (KYC/KYB) y controles de sanciones internacionales coordinados por la SDF.
 
-El programa busca apoyar diferentes tipos de proyectos y propuestas que puedan aportar valor al ecosistema.
+### 1.2 Criterios de Evaluación
+Las propuestas son evaluadas por un panel de la comunidad Stellar mediante los siguientes criterios:
+* **Impacto y Utilidad:** ¿El proyecto resuelve un problema del mundo real y aporta valor medible al ecosistema?
+* **Factibilidad Técnica y Capacidad del Equipo:** ¿La arquitectura planteada es sólida y el equipo posee la capacidad técnica para ejecutarla?
+* **Presupuesto Razonable:** El presupuesto solicitado (denominado en USD y liquidado en XLM) debe ser proporcional al alcance y alinearse con las guías financieras del SCF.
+* **Diferenciación:** Grado de innovación o adaptación adecuada de la tecnología a un sector específico.
 
-Para esta práctica se toma como referencia principalmente el **Build Award**, debido a que contempla el desarrollo de proyectos mediante diferentes etapas.
-
----
-
-## 2.2 Requisitos y criterios de evaluación
-
-De acuerdo con la información oficial del Stellar Community Fund, los proyectos deben presentar una propuesta que permita evaluar diferentes aspectos del proyecto.
-
-Entre los principales criterios se encuentran:
-
-- **Product Market Fit:** relación entre el producto y las necesidades de los usuarios.
-- **Submission Quality:** calidad y claridad de la propuesta presentada.
-- **Use of Stellar:** utilización de la tecnología y herramientas del ecosistema Stellar.
-- **Integration Plan:** planificación de la integración con Stellar.
-- **Ready to Build:** grado de preparación del equipo para comenzar o continuar el desarrollo.
-- **Budget & Tranches:** presupuesto y distribución del financiamiento mediante diferentes tramos.
-
-Estos criterios permiten determinar si un proyecto presenta una propuesta viable y si existe una justificación adecuada para proporcionar financiamiento.
+* **Fuente oficial:** [Stellar Community Fund Handbook - Submission Criteria](https://stellar.gitbook.io/scf-handbook/scf-awards/build-award/submission-criteria)  
+* **Fecha de consulta:** 31 de agosto de 2026
 
 ---
 
-## 2.3 Tramos del financiamiento
+## 2. Funcionamiento de Drips Protocol
 
-El Build Award del Stellar Community Fund organiza el desarrollo mediante diferentes etapas o tramos.
+### 2.1 Definición y Streaming de Fondos On-Chain
+**Drips Protocol** es un protocolo descentralizado, autónomo y no custodial construido sobre la red Ethereum (y redes EVM compatibles). Permite realizar **streaming de fondos on-chain**, lo cual consiste en la transferencia continua de tokens ERC-20 calculada segundo a segundo a través de contratos inteligentes. 
 
-La estructura publicada actualmente contempla:
+A diferencia de las transferencias bancarias tradicionales o los pagos por bloques fijos, el streaming permite que el emisor configure una tasa de flujo de dinero (ej. $X$ tokens por segundo). El receptor acumula dicho flujo en tiempo real en la cadena de bloques y puede retirar (*claim*) los fondos acumulados en el momento que lo desee.
 
-| Tramo | Etapa | Propósito |
-|---|---|---|
-| Tranche #1 | MVP | Desarrollo del producto mínimo viable |
-| Tranche #2 | Testnet | Pruebas y validación técnica |
-| Tranche #3 | Mainnet | Implementación en la red principal |
+### 2.2 Requisitos para Recibir Fondos
+Para que el proyecto de la Unión de Productores de Miel pueda recibir streaming o donaciones a través de Drips Protocol se requiere:
+1. **Identidad Web3 o Configuración de Repositorio:** Una dirección de billetera (*wallet*) compatible con Ethereum (EVM) controlada por la organización. Alternativamente, Drips permite vincular repositorios públicos de GitHub mediante un archivo de configuración `FUNDING.json` ubicado en la rama predeterminada, validado por un oráculo Chainlink.
+2. **Listas de Licencias/Dependencias (Drip Lists):** Configurar la división de ingresos (*dependency splitting*), lo cual permite que un porcentaje de las donaciones recibidas se reenvíe automáticamente a proyectos de código abierto de los cuales dependa el software.
 
-Esta estructura permite relacionar el financiamiento con resultados concretos del desarrollo.
+### 2.3 Costos, Límites y Consideraciones
+* **Costos de Transacción (Gas Fees):** La creación de un flujo (*stream*), el retiro de fondos (*claim*) y la actualización de listas requieren ejecutar transacciones en la red Ethereum, lo que implica el pago de tarifas de red (*gas*).
+* **Custodia de Llaves Privadas:** Al ser un protocolo no custodial, la pérdida de las llaves privadas de la billetera receptora resulta en la pérdida irreversible de los fondos acumulados.
+* **Volatilidad de Activos:** Los fondos recibidos mediante tokens ERC-20 sufren la fluctuación de precio del mercado cripto si no se utilizan criptomonedas estables (*pegged* como USDC o DAI).
 
-Es importante aclarar que esta estructura se utiliza en este documento como referencia para organizar nuestro proyecto. **El equipo no cuenta actualmente con un financiamiento aprobado por el Stellar Community Fund.**
-
----
-
-## 2.4 Relación con nuestro proyecto
-
-Los requisitos del SCF permiten identificar varios aspectos que nuestro proyecto debe considerar antes de realizar una posible postulación.
-
-Entre ellos se encuentran:
-
-1. Definir claramente el problema que se pretende solucionar.
-2. Identificar a los usuarios objetivo.
-3. Contar con un producto o prototipo funcional.
-4. Demostrar el avance del proyecto.
-5. Justificar el uso de Stellar.
-6. Definir un plan de integración.
-7. Elaborar un presupuesto.
-8. Organizar el desarrollo mediante fases.
-9. Establecer resultados verificables para cada etapa.
-
-Por lo tanto, el backlog del proyecto puede organizarse de manera que cada fase produzca resultados que posteriormente puedan ser utilizados como evidencia de avance.
+* **Fuente oficial:** [Drips Network Documentation](https://docs.drips.network/the-protocol/overview/)  
+* **Fecha de consulta:** 31 de agosto de 2026
 
 ---
 
-## 2.5 Fuente oficial y fecha de consulta
+## 3. Relación entre el Backlog y los Tramos de Financiamiento
 
-**Fuente oficial:** Stellar Community Fund – Build Awards
+La estrategia de financiamiento del proyecto no contempla recibir ingresos de forma inmediata, sino alinear el avance del código con posibles fondos externos:
 
-https://communityfund.stellar.org/awards
+1. **Fase 1 (MVP) ── Vinculada a SCF Tranche 1:**
+   * *Qué se financiaría:* Horas de desarrollo para completar las historias `HU-01`, `HU-02` y `HU-03` (módulos de productores, cosechas e inventario de miel).
+   * *Por qué:* Es la etapa mínima requerida para demostrar un software funcional de captura de datos antes de solicitar integraciones complejas.
 
-**Fecha de consulta:** 31 de agosto de 2026.
+2. **Fase 2 (Integración y Pruebas) ── Vinculada a SCF Tranche 2:**
+   * *Qué se financiaría:* Implementación de `HU-04` y `HU-05` (comercialización y reportes) junto con el diseño del modelo de seguridad y pruebas en Testnet.
+   * *Por qué:* Permite validar la estabilidad del sistema y cumplir con los requisitos de seguridad que exige Stellar para pasar a redes de producción.
 
----
-
-# 3. Drips Protocol
-
-## 3.1 ¿Qué es Drips?
-
-**Drips** es un protocolo que permite distribuir fondos de manera continua mediante tecnología blockchain.
-
-Su funcionamiento está relacionado principalmente con Ethereum y redes compatibles con EVM.
-
-Una de sus características principales es el uso de **streams**, mediante los cuales los fondos pueden distribuirse progresivamente hacia uno o varios receptores.
+3. **Fase 3 (Operación y Expansión) ── Vinculada a SCF Tranche 3 y Drips Protocol:**
+   * *Qué se financiaría:* Despliegue en Mainnet (`AF-01`), mantenimiento continuo (`AF-04`), y la evaluación técnica para habilitar streaming de aportaciones comunitarias a través de Drips (`AF-06`).
+   * *Por qué:* Garantiza la sostenibilidad operativa del software en San Juan Ñumí a largo plazo mediante infraestructura descentralizada.
 
 ---
 
-## 3.2 ¿Qué es el streaming de fondos?
+## 4. El Hueco Honesto (Requisitos Pendientes)
 
-El streaming de fondos consiste en distribuir una cantidad de recursos de manera continua durante un periodo determinado.
+Para presentar una postulación real a fuentes de financiamiento *on-chain*, el proyecto reconoce de manera transparente que **aún no cumple** con los siguientes requisitos:
 
-A diferencia de una transferencia tradicional, en la que una cantidad se envía de una sola vez, un stream utiliza una tasa de distribución.
-
-Por ejemplo, conceptualmente se puede establecer una cantidad que se distribuye progresivamente a un receptor con una determinada tasa por segundo.
-
-El protocolo registra esta información mediante contratos inteligentes y permite que los receptores recopilen posteriormente los fondos que les corresponden.
-
----
-
-## 3.3 ¿Qué se necesita para recibir fondos?
-
-Para recibir fondos mediante Drips es necesario contar con una cuenta o dirección compatible con las redes soportadas por el protocolo.
-
-El receptor puede acumular fondos de acuerdo con los streams configurados.
-
-Posteriormente, los fondos disponibles pueden ser recopilados mediante las operaciones correspondientes del protocolo.
-
-Estas operaciones se realizan mediante tecnología blockchain y pueden implicar costos de gas.
+| Requisito Faltante | Estado Actual | Plan de Acción para Solucionarlo | Fecha Estimada de Cierre |
+| :--- | :--- | :--- | :--- |
+| **1. Integración con Soroban / Stellar SDK** | El código actual es un prototipo local sin conexión a redes blockchain. | Desarrollar el módulo de conexión mediante `stellar-sdk` en la Fase 3 de evaluación. | 15 de noviembre de 2026 |
+| **2. Modelo de Amenazas y Plan de Monitoreo** | No se ha redactado la documentación de análisis de riesgos informáticos. | Elaborar la plantilla de *Threat Modeling* exigida por SCF durante la Fase 2. | 15 de octubre de 2026 |
+| **3. Billetera de la Organización y `FUNDING.json`** | La Unión de Productores no posee wallet EVM ni archivo `FUNDING.json` en GitHub. | Crear la billetera multisig institucional y configurar el archivo de soporte en el repositorio. | 30 de septiembre de 2026 |
+| **4. Despliegue en Testnet y Métrica de Uso** | El sistema no está desplegado en ningún servidor accesible públicamente. | Configurar el entorno de pruebas en la nube para medir el uso real por parte de los apicultores. | 30 de octubre de 2026 |
 
 ---
 
-## 3.4 Límites y consideraciones
-
-El uso de Drips implica considerar diferentes aspectos técnicos:
-
-- El protocolo utiliza redes compatibles con EVM.
-- Las operaciones se realizan mediante contratos inteligentes.
-- Los streams utilizan una tasa de distribución.
-- Los fondos se acumulan para los receptores.
-- Los receptores deben recopilar los fondos disponibles.
-- Las operaciones pueden generar costos de gas.
-- Existen límites relacionados con la cantidad de receptores y la configuración de los streams.
-
-La documentación técnica de Drips indica que una configuración de streams puede manejar hasta **100 receptores**.
-
-Por lo tanto, antes de utilizar este mecanismo es necesario analizar los costos, las redes disponibles y la configuración requerida.
-
----
-
-## 3.5 Relación con nuestro proyecto
-
-Drips puede considerarse como una alternativa tecnológica para distribuir recursos de manera continua.
-
-Sin embargo, su utilización dependería de las características y necesidades específicas de nuestro proyecto.
-
-Además, es importante distinguir ambas tecnologías:
-
-- El **Stellar Community Fund** corresponde a un mecanismo de financiamiento del ecosistema Stellar.
-- **Drips** corresponde a un protocolo de distribución continua de fondos basado principalmente en Ethereum y redes EVM.
-
-Por lo tanto, Drips no debe considerarse como un componente propio del Stellar Community Fund.
-
----
-
-## 3.6 Fuente técnica
-
-**Documentación oficial de Drips:**
-
-https://docs.drips.network/
-
-**Documentación técnica:**
-
-https://docs.drips.network/the-protocol/advanced/drips-inner-workings/
-
-**Fecha de consulta:** 31 de agosto de 2026.
-
----
-
-# 4. Backlog por fases y financiamiento
-
-El backlog del proyecto se relaciona con las etapas de desarrollo utilizadas como referencia por el Stellar Community Fund.
-
-La finalidad es identificar qué actividades podrían asociarse hipotéticamente con cada tramo de financiamiento.
-
----
-
-## 4.1 Fase 1 – MVP
-
-### Objetivo
-
-Construir una primera versión funcional del proyecto que permita validar la propuesta principal.
-
-### Actividades
-
-- Definición de requisitos.
-- Diseño inicial.
-- Desarrollo de funcionalidades principales.
-- Implementación del prototipo.
-- Pruebas iniciales.
-- Validación con usuarios.
-
-### Relación con financiamiento
-
-Esta fase se relacionaría hipotéticamente con:
-
-**Tranche #1 – MVP**
-
-Los recursos podrían utilizarse para cubrir actividades relacionadas con el desarrollo inicial y validación del producto.
-
----
-
-## 4.2 Fase 2 – Testnet / Validación
-
-### Objetivo
-
-Validar técnicamente la solución antes de una implementación definitiva.
-
-### Actividades
-
-- Integración de componentes.
-- Pruebas funcionales.
-- Pruebas de seguridad.
-- Corrección de errores.
-- Validación técnica.
-- Integración con Stellar, en caso de que corresponda al proyecto.
-
-### Relación con financiamiento
-
-Esta fase se relacionaría hipotéticamente con:
-
-**Tranche #2 – Testnet**
-
-El financiamiento permitiría continuar con el desarrollo y realizar pruebas que demuestren el funcionamiento técnico de la solución.
-
----
-
-## 4.3 Fase 3 – Mainnet / Implementación
-
-### Objetivo
-
-Preparar una versión estable para usuarios reales.
-
-### Actividades
-
-- Implementación de la versión final.
-- Mejoras de rendimiento.
-- Seguridad.
-- Documentación.
-- Monitoreo.
-- Soporte inicial.
-
-### Relación con financiamiento
-
-Esta fase se relacionaría hipotéticamente con:
-
-**Tranche #3 – Mainnet**
-
-Los recursos permitirían realizar las actividades necesarias para pasar de una versión validada a una implementación estable.
-
----
-
-## 4.4 Tabla de relación
-
-| Fase del proyecto | Resultado esperado | Posible tramo |
-|---|---|---|
-| Fase 1 | MVP funcional | Tranche #1 |
-| Fase 2 | Testnet / validación | Tranche #2 |
-| Fase 3 | Mainnet / implementación | Tranche #3 |
-
-Esta relación representa una planificación hipotética del equipo y no implica que el proyecto tenga financiamiento aprobado.
-
----
-
-# 5. El hueco honesto
-
-Investigar los requisitos del Stellar Community Fund y de Drips no significa que nuestro proyecto cumpla actualmente con todos los requisitos necesarios para recibir financiamiento.
-
-Por esta razón, se identifican los siguientes aspectos pendientes.
-
-| Requisito pendiente | Acción para cerrarlo | Fecha estimada |
-|---|---|---|
-| Validación con usuarios | Realizar pruebas y recopilar retroalimentación | Septiembre 2026 |
-| Integración con Stellar | Definir y validar los componentes necesarios | Octubre 2026 |
-| Presupuesto | Elaborar un presupuesto detallado por fase | Octubre 2026 |
-| Evidencia técnica | Completar pruebas y documentación | Noviembre 2026 |
-| Preparación para una posible postulación | Revisar nuevamente los requisitos oficiales | Noviembre 2026 |
-
-Actualmente, el proyecto **NO se considera listo para realizar una postulación real**.
-
-El objetivo es utilizar estos pendientes como guía para continuar mejorando el proyecto.
-
-Las fechas son estimaciones académicas del equipo y pueden modificarse de acuerdo con el avance del proyecto.
-
----
-
-# 6. Organización del repositorio
-
-La documentación relacionada con la actividad se organiza de la siguiente manera:
-
-```text
-/
-├── README.md
-├── FINANCIAMIENTO.md
-├── LICENSE
-│
-├── docs/
-│   └── BACKLOG.md
-│
-└── demás archivos del proyecto
----
-
-# 2. Stellar Community Fund (SCF)
-
-## 2.1 ¿Qué es el Stellar Community Fund?
-
-El **Stellar Community Fund (SCF)** es un programa del ecosistema Stellar que proporciona financiamiento a proyectos que desarrollan soluciones utilizando la red Stellar.
-
-El programa busca apoyar diferentes tipos de proyectos y propuestas que puedan aportar valor al ecosistema.
-
-Para esta práctica se toma como referencia principalmente el **Build Award**, debido a que contempla el desarrollo de proyectos mediante diferentes etapas.
-
----
-
-## 2.2 Requisitos y criterios de evaluación
-
-De acuerdo con la información oficial del Stellar Community Fund, los proyectos deben presentar una propuesta que permita evaluar diferentes aspectos del proyecto.
-
-Entre los principales criterios se encuentran:
-
-- **Product Market Fit:** relación entre el producto y las necesidades de los usuarios.
-- **Submission Quality:** calidad y claridad de la propuesta presentada.
-- **Use of Stellar:** utilización de la tecnología y herramientas del ecosistema Stellar.
-- **Integration Plan:** planificación de la integración con Stellar.
-- **Ready to Build:** grado de preparación del equipo para comenzar o continuar el desarrollo.
-- **Budget & Tranches:** presupuesto y distribución del financiamiento mediante diferentes tramos.
-
-Estos criterios permiten determinar si un proyecto presenta una propuesta viable y si existe una justificación adecuada para proporcionar financiamiento.
-
----
-
-## 2.3 Tramos del financiamiento
-
-El Build Award del Stellar Community Fund organiza el desarrollo mediante diferentes etapas o tramos.
-
-La estructura publicada actualmente contempla:
-
-| Tramo | Etapa | Propósito |
-|---|---|---|
-| Tranche #1 | MVP | Desarrollo del producto mínimo viable |
-| Tranche #2 | Testnet | Pruebas y validación técnica |
-| Tranche #3 | Mainnet | Implementación en la red principal |
-
-Esta estructura permite relacionar el financiamiento con resultados concretos del desarrollo.
-
-Es importante aclarar que esta estructura se utiliza en este documento como referencia para organizar nuestro proyecto. **El equipo no cuenta actualmente con un financiamiento aprobado por el Stellar Community Fund.**
-
----
-
-## 2.4 Relación con nuestro proyecto
-
-Los requisitos del SCF permiten identificar varios aspectos que nuestro proyecto debe considerar antes de realizar una posible postulación.
-
-Entre ellos se encuentran:
-
-1. Definir claramente el problema que se pretende solucionar.
-2. Identificar a los usuarios objetivo.
-3. Contar con un producto o prototipo funcional.
-4. Demostrar el avance del proyecto.
-5. Justificar el uso de Stellar.
-6. Definir un plan de integración.
-7. Elaborar un presupuesto.
-8. Organizar el desarrollo mediante fases.
-9. Establecer resultados verificables para cada etapa.
-
-Por lo tanto, el backlog del proyecto puede organizarse de manera que cada fase produzca resultados que posteriormente puedan ser utilizados como evidencia de avance.
-
----
-
-## 2.5 Fuente oficial y fecha de consulta
-
-**Fuente oficial:** Stellar Community Fund – Build Awards
-
-https://communityfund.stellar.org/awards
-
-**Fecha de consulta:** 31 de agosto de 2026.
----
-
-# 3. Drips Protocol
-
-## 3.1 ¿Qué es Drips?
-
-**Drips** es un protocolo que permite distribuir fondos de manera continua mediante tecnología blockchain.
-
-Su funcionamiento está relacionado principalmente con Ethereum y redes compatibles con EVM.
-
-Una de sus características principales es el uso de **streams**, mediante los cuales los fondos pueden distribuirse progresivamente hacia uno o varios receptores.
-
----
-
-## 3.2 ¿Qué es el streaming de fondos?
-
-El streaming de fondos consiste en distribuir una cantidad de recursos de manera continua durante un periodo determinado.
-
-A diferencia de una transferencia tradicional, en la que una cantidad se envía de una sola vez, un stream utiliza una tasa de distribución.
-
-Por ejemplo, conceptualmente se puede establecer una cantidad que se distribuye progresivamente a un receptor con una determinada tasa por segundo.
-
-El protocolo registra esta información mediante contratos inteligentes y permite que los receptores recopilen posteriormente los fondos que les corresponden.
-
----
-
-## 3.3 ¿Qué se necesita para recibir fondos?
-
-Para recibir fondos mediante Drips es necesario contar con una cuenta o dirección compatible con las redes soportadas por el protocolo.
-
-El receptor puede acumular fondos de acuerdo con los streams configurados.
-
-Posteriormente, los fondos disponibles pueden ser recopilados mediante las operaciones correspondientes del protocolo.
-
-Estas operaciones se realizan mediante tecnología blockchain y pueden implicar costos de gas.
-
----
-
-## 3.4 Límites y consideraciones
-
-El uso de Drips implica considerar diferentes aspectos técnicos:
-
-- El protocolo utiliza redes compatibles con EVM.
-- Las operaciones se realizan mediante contratos inteligentes.
-- Los streams utilizan una tasa de distribución.
-- Los fondos se acumulan para los receptores.
-- Los receptores deben recopilar los fondos disponibles.
-- Las operaciones pueden generar costos de gas.
-- Existen límites relacionados con la cantidad de receptores y la configuración de los streams.
-
-La documentación técnica de Drips indica que una configuración de streams puede manejar hasta **100 receptores**.
-
-Por lo tanto, antes de utilizar este mecanismo es necesario analizar los costos, las redes disponibles y la configuración requerida.
-
----
-
-## 3.5 Relación con nuestro proyecto
-
-Drips puede considerarse como una alternativa tecnológica para distribuir recursos de manera continua.
-
-Sin embargo, su utilización dependería de las características y necesidades específicas de nuestro proyecto.
-
-Además, es importante distinguir ambas tecnologías:
-
-- El **Stellar Community Fund** corresponde a un mecanismo de financiamiento del ecosistema Stellar.
-- **Drips** corresponde a un protocolo de distribución continua de fondos basado principalmente en Ethereum y redes EVM.
-
-Por lo tanto, Drips no debe considerarse como un componente propio del Stellar Community Fund.
-
----
-
-## 3.6 Fuente técnica
-
-**Documentación oficial de Drips:**
-
-https://docs.drips.network/
-
-**Documentación técnica:**
-
-https://docs.drips.network/the-protocol/advanced/drips-inner-workings/
-
-**Fecha de consulta:** 31 de agosto de 2026.
+## 5. Bibliografía
+
+1. **Stellar Development Foundation.** (2026). *Stellar Community Fund Handbook: Build Award Submission Criteria*. Recuperado de: https://stellar.gitbook.io/scf-handbook/scf-awards/build-award/submission-criteria [Fuente primaria en inglés]
+2. **Drips Protocol Team.** (2026). *Drips Technical Overview & Protocol Specification*. Recuperado de: https://docs.drips.network/the-protocol/overview/ [Fuente primaria en inglés]
+3. **Drips Network.** (2026). *Drips Application Repository and GitHub Integration Specs*. GitHub. Recuperado de: https://github.com/drips-network/app [Fuente primaria en inglés]
